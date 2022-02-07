@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head />
-        <body>
+        <body className="bg-zinc-100 dark:bg-dark">
           <Main />
           <NextScript />
         </body>

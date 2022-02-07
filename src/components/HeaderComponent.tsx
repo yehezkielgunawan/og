@@ -22,7 +22,7 @@ const HeaderComponent = () => {
   if (!mounted) return null;
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-white p-0.5 opacity-90 dark:bg-gray-700">
+    <header className="fixed top-0 z-50 w-full bg-gray-300 p-0.5 opacity-90 dark:bg-gray-700">
       <div
         className={clsx(
           "layout flex items-center justify-between",
@@ -30,7 +30,7 @@ const HeaderComponent = () => {
         )}
       >
         <h5 className="font-bold text-black dark:text-white">
-          yehez-nexttailwind-starter
+          Open Graph Image Generator
         </h5>
         <Button
           variant="outline"
