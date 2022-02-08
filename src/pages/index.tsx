@@ -20,7 +20,7 @@ const Home: NextPage = () => {
     alert(JSON.stringify(data));
   return (
     <Layout>
-      <main className="flex items-center justify-between gap-3">
+      <main className="flex flex-wrap items-center justify-between gap-3 md:flex-nowrap">
         <form
           onSubmit={handleSubmit(onSubmitForm)}
           className="my-4 flex w-full flex-col gap-3"

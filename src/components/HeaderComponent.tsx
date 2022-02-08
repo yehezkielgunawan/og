@@ -22,7 +22,7 @@ const HeaderComponent = () => {
   if (!mounted) return null;
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-gray-300 p-0.5 opacity-90 dark:bg-gray-700">
+    <header className="fixed top-0 z-50 w-full bg-gray-300 p-0.5 opacity-90 dark:bg-gray-800">
       <div
         className={clsx(
           "layout flex items-center justify-between",
