@@ -6,10 +6,11 @@ export type UnstyledInputProps = {
   className?: string;
   labelName?: string;
   helperText?: string;
+  errorMsg?: string;
 } & React.ComponentPropsWithRef<"input">;
 
 const UnstyledInput = React.forwardRef<HTMLInputElement, UnstyledInputProps>(
-  ({ labelName, className, helperText, ...rest }, ref) => {
+  ({ labelName, className, helperText, errorMsg, ...rest }, ref) => {
     if (labelName) {
       if (rest.type === "checkbox") {
         return (
@@ -27,6 +28,7 @@ const UnstyledInput = React.forwardRef<HTMLInputElement, UnstyledInputProps>(
       return (
         <label className="block">
           <span className="text-gray-700 dark:text-gray-100">{labelName}</span>
+          {rest.required && <span className="text-red-500">*</span>}
           <input
             ref={ref}
             className={clsxm(
@@ -35,9 +37,10 @@ const UnstyledInput = React.forwardRef<HTMLInputElement, UnstyledInputProps>(
             )}
             {...rest}
           />
-          {helperText && (
+          {helperText && !errorMsg && (
             <span className="text-sm text-zinc-400">{helperText}</span>
           )}
+          {errorMsg && <span className="text-sm text-red-500">{errorMsg}</span>}
         </label>
       );
     }
