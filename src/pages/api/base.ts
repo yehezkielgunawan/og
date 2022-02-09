@@ -37,10 +37,12 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
           <head>
           
           ${getStyle(query)}
-          <script src="https://cdn.tailwindcss.com"></script>
+          <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
           </head>
           <body>
-          <div class="flex h-screen w-screen flex-col items-center justify-center gap-4 bg-zinc-100 p-3 text-center dark:bg-dark">
+          <div class="flex h-screen w-screen flex-col items-center justify-center gap-4 ${
+            query.theme === "light" ? "bg-zinc-100" : "bg-dark"
+          } p-3 text-center">
           <img
             src="https://res.cloudinary.com/yehez/image/upload/v1636202181/peep_amkhuu.svg"
             alt="favicon"
