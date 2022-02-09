@@ -25,38 +25,30 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
       const query = {
         siteName: siteName ?? "Site Name",
         description: description ?? "Description",
-        logo: logo ?? "https://og.thcl.dev/images/logo.jpg",
+        logo: logo ?? "https://res.cloudinary.com/yehez/image/upload/v1636202181/peep_amkhuu.svg",
         theme: theme ?? "dark",
         templateTitle,
-        logoWidth: logoWidth ?? 100,
+        logoWidth: logoWidth ?? "100",
         logoHeight,
       };
 
       return `
         <html>
           <head>
-          
-          ${getStyle(query)}
-          <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+            ${getStyle(query)}
           </head>
           <body>
-          <div class="flex h-screen w-screen flex-col items-center justify-center gap-4 ${
-            query.theme === "light" ? "bg-zinc-100" : "bg-dark"
-          } p-3 text-center">
-          <img
-            src="https://res.cloudinary.com/yehez/image/upload/v1636202181/peep_amkhuu.svg"
-            alt="favicon"
-          />
-          ${
-            query.templateTitle
-              ? `<h1>${query.templateTitle}</h1>
-              <h3>${query.siteName}</h3>`
-              : `<h1>${query.siteName}</h1>`
-          }
-          <p class="font-md mt-2 leading-6 text-dark dark:text-white">
-          ${query.description}
-        </p>
-        </div>
+            <div class="container">
+              <img src="${query.logo}" alt="Favicon" />
+              ${
+                query.templateTitle
+                  ? `<h1>${query.templateTitle}</h1>
+                  <h3>${query.siteName}</h3>`
+                  : `<h1>${query.siteName}</h1>`
+              }
+              
+              <p class="description">${query.description}</p>
+            </div>
           </body>
         </html>
       `;
@@ -76,6 +68,7 @@ const getStyle = (
     padding: 0;
     box-sizing: border-box;
   }
+
   @font-face {
     font-family: 'Inter';
     font-style: normal;
@@ -86,13 +79,50 @@ const getStyle = (
       U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
       U+2215, U+FEFF, U+FFFD;
   }
+
   body {
     font-family: 'Inter', sans-serif;
   }
+
+  .container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: ${query.theme === "dark" ? "#222" : "#fff"};
+    color: ${query.theme === "dark" ? "white" : "black"};
+
+    text-align: center;
+    padding: 0 5rem;
+  }
+
   img {
     width: ${query.logoWidth}px;
     ${query.logoHeight && `height: ${query.logoHeight}px`}
   }
 
+  h1 {
+    font-size: 1.5rem;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-top: 1.5rem;
+  }
+
+  h3 {
+    margin-top: 0.5rem;
+    color: ${query.theme === "dark" ? "#E5E7EB" : "#374151"};
+    font-size: 1.5rem;
+  }
+  
+  .description {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    color: ${query.theme === "dark" ? "#D1D5DB" : "#1F2937"};
+  }
 </style>
 `;
