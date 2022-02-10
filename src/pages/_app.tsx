@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import { DefaultSeo } from "next-seo";
-import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
@@ -8,7 +7,7 @@ import defaultSEOConfig from "../../next-seo.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <>
       <Head>
         <meta
           name="viewport"
@@ -17,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <DefaultSeo {...defaultSEOConfig} />
       <Component {...pageProps} />
-    </ThemeProvider>
+    </>
   );
 }
 
