@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     setLink(
       "https://og.yehezgun.com/api/base/" +
         `?theme=dark&templateTitle=${encodeURIComponent(data.template_title)}${
-          data.image_url && `&logo=$${data.image_url}`
+          data.image_url && `&logo=${data.image_url}`
         }${data.description && `&description=${encodeURIComponent(data.description)}`}`
     );
   };
