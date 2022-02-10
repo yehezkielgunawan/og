@@ -1,32 +1,47 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
-import { useState } from "react";
+import queryString from "query-string";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+
+import { GeneralQueryEnum } from "./api/base";
 
 import Button from "@/components/buttons/Button";
 import UnstyledInput from "@/components/forms/UnstyledInput";
 import Layout from "@/layouts/Layout";
 import clsxm from "@/lib/helpers/clsxm";
-import { SubmitFormType } from "@/types/submitForm";
+
+type Query = Record<keyof typeof GeneralQueryEnum, string>
 
 const Home: NextPage = () => {
   const {
     register,
+    watch,
     formState: { errors },
     handleSubmit,
-  } = useForm<SubmitFormType>({
+  } = useForm<Query>({
     mode: "all",
   });
+  const formData = watch();
   const [link, setLink] = useState<string>("https://og.yehezgun.com/api/base");
-  const onSubmitForm: SubmitHandler<SubmitFormType> = (data) => {
-    alert(JSON.stringify(data));
-    setLink(
-      "https://og.yehezgun.com/api/base/" +
-        `?theme=dark&templateTitle=${encodeURIComponent(data.template_title)}${
-          data.image_url && `&logo=${data.image_url}`
-        }${data.description && `&description=${encodeURIComponent(data.description)}`}`
-    );
+  const [imgLink, setImgLink] = useState<string>("https://og.yehezgun.com/api/base");
+  const onSubmitForm: SubmitHandler<Query> = () => {
+    setImgLink(link);
   };
+
+  useEffect(() => {
+    const { ...rest } = formData;
+    const qurl = queryString.stringifyUrl(
+      {
+        url: "https://og.yehezgun.com/api/base",
+        query: { ...rest },
+      },
+      {
+        skipEmptyString: true,
+      }
+    );
+    setLink(qurl);
+  }, [formData]);
 
   return (
     <Layout>
@@ -40,13 +55,13 @@ const Home: NextPage = () => {
             required
             type="text"
             errorMsg={
-              errors.template_title?.type === "required"
+              errors.templateTitle?.type === "required"
                 ? "First name is required"
-                : errors.template_title?.type === "minLength"
+                : errors.templateTitle?.type === "minLength"
                 ? "Too short. The site name should be at least 3 characters."
                 : undefined
             }
-            {...register("template_title", { required: true, minLength: 3 })}
+            {...register("templateTitle", { required: true, minLength: 3 })}
           />
           <UnstyledInput
             labelName="Description"
@@ -56,7 +71,7 @@ const Home: NextPage = () => {
           <UnstyledInput
             labelName="Image URL"
             type="text"
-            {...register("image_url")}
+            {...register("logo")}
           />
           <Button
             type="submit"
@@ -71,7 +86,7 @@ const Home: NextPage = () => {
         </form>
         <div className="flex w-full flex-col items-center justify-center p-5">
           <img
-            src={link}
+            src={imgLink}
             className="w-full bg-gray-500"
             alt=""
             width="1200"
