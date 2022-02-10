@@ -3,7 +3,6 @@ import { withOGImage } from "next-api-og-image";
 
 export enum GeneralQueryEnum {
   "logo",
-  "siteName",
   "description",
   "theme",
   "templateTitle",
@@ -14,7 +13,6 @@ export enum GeneralQueryEnum {
 export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
   template: {
     html: async ({
-      siteName,
       description,
       logo,
       theme,
@@ -23,11 +21,12 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
       logoHeight,
     }: any) => {
       const query = {
-        siteName: siteName ?? "Site Name",
         description: description ?? "Description",
-        logo: logo ?? "https://res.cloudinary.com/yehez/image/upload/v1636202181/peep_amkhuu.svg",
+        logo:
+          logo ??
+          "https://res.cloudinary.com/yehez/image/upload/v1636202181/peep_amkhuu.svg",
         theme: theme ?? "dark",
-        templateTitle,
+        templateTitle: templateTitle ?? "Template Title",
         logoWidth: logoWidth ?? "100",
         logoHeight,
       };
@@ -40,12 +39,9 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
           <body>
             <div class="container">
               <img src="${query.logo}" alt="Favicon" />
-              ${
-                query.templateTitle
-                  ? `<h1>${query.templateTitle}</h1>
-                  <h3>${query.siteName}</h3>`
-                  : `<h1>${query.siteName}</h1>`
-              }
+
+                <h1>${query.templateTitle}</h1>
+
               
               <p class="description">${query.description}</p>
             </div>

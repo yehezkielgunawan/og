@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import Button from "@/components/buttons/Button";
 import UnstyledInput from "@/components/forms/UnstyledInput";
-import NextImage from "@/components/NextImage";
 import Layout from "@/layouts/Layout";
 import clsxm from "@/lib/helpers/clsxm";
 import { SubmitFormType } from "@/types/submitForm";
@@ -16,8 +17,17 @@ const Home: NextPage = () => {
   } = useForm<SubmitFormType>({
     mode: "all",
   });
-  const onSubmitForm: SubmitHandler<SubmitFormType> = (data) =>
+  const [link, setLink] = useState<string>("https://og.yehezgun.com/api/base");
+  const onSubmitForm: SubmitHandler<SubmitFormType> = (data) => {
     alert(JSON.stringify(data));
+    setLink(
+      "https://og.yehezgun.com/api/base/" +
+        `?theme=dark&siteName=${data.site_name}${
+          data.image_url && `&logo=$${data.image_url}`
+        }${data.description && `&description=${data.description}`}`
+    );
+  };
+
   return (
     <Layout>
       <main className="flex flex-wrap items-center justify-between gap-3 md:flex-nowrap">
@@ -59,15 +69,15 @@ const Home: NextPage = () => {
             Generate
           </Button>
         </form>
-        <div className="flex w-full items-center justify-center">
-          <NextImage
-            useSkeleton
-            className="w-32 md:w-40"
-            src="https://assets.vercel.com/image/upload/v1607554385/repositories/next-js/next-logo.png"
-            width={140}
-            height={140}
-            alt="Icon example"
+        <div className="flex w-full flex-col items-center justify-center p-5">
+          <img
+            src={link}
+            className="w-full bg-gray-500"
+            alt=""
+            width="1200"
+            height="630"
           />
+          <p className="mt-2 break-all text-sm text-gray-600">{link}</p>
         </div>
       </main>
     </Layout>
