@@ -22,9 +22,9 @@ const Home: NextPage = () => {
     alert(JSON.stringify(data));
     setLink(
       "https://og.yehezgun.com/api/base/" +
-        `?theme=dark&siteName=${data.site_name}${
+        `?theme=dark&templateTitle=${encodeURIComponent(data.template_title)}${
           data.image_url && `&logo=$${data.image_url}`
-        }${data.description && `&description=${data.description}`}`
+        }${data.description && `&description=${encodeURIComponent(data.description)}`}`
     );
   };
 
@@ -40,13 +40,13 @@ const Home: NextPage = () => {
             required
             type="text"
             errorMsg={
-              errors.site_name?.type === "required"
+              errors.template_title?.type === "required"
                 ? "First name is required"
-                : errors.site_name?.type === "minLength"
+                : errors.template_title?.type === "minLength"
                 ? "Too short. The site name should be at least 3 characters."
                 : undefined
             }
-            {...register("site_name", { required: true, minLength: 3 })}
+            {...register("template_title", { required: true, minLength: 3 })}
           />
           <UnstyledInput
             labelName="Description"

@@ -1,5 +1,5 @@
 export type SubmitFormType = {
-  site_name: string;
+  template_title: string;
   description?: string;
   image_url?: string;
 };
