@@ -103,8 +103,7 @@ const getStyle = (
   }
 
   h1 {
-    font-size: 1.5rem;
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 1.1;
     margin-top: 1.5rem;
   }
