@@ -1,5 +1,8 @@
 import clsx from "clsx";
 import React, { useEffect, useState } from "react";
+import { ImGithub } from "react-icons/im";
+
+import ButtonLink from "./buttons/ButtonLink";
 
 const HeaderComponent = () => {
   const [mounted, setMounted] = useState<boolean>(false);
@@ -21,6 +24,13 @@ const HeaderComponent = () => {
         <h5 className="font-bold text-black dark:text-white">
           Open Graph Image Generator
         </h5>
+        <ButtonLink
+          href="https://github.com/yehezkielgunawan/og"
+          variant="ghost"
+        >
+          <ImGithub className="mr-2" size={20} />
+          See The Repository
+        </ButtonLink>
       </div>
     </header>
   );
