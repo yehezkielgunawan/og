@@ -4,6 +4,7 @@ import { withOGImage } from "next-api-og-image";
 export enum GeneralQueryEnum {
   "logo",
   "description",
+  "siteName",
   "theme",
   "templateTitle",
   "logoWidth",
@@ -16,6 +17,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
       description,
       logo,
       theme,
+      siteName,
       templateTitle,
       logoWidth,
       logoHeight,
@@ -28,6 +30,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
         theme: theme ?? "dark",
         templateTitle: templateTitle ?? "Template Title",
         logoWidth: logoWidth ?? "100",
+        siteName: siteName ?? "Site Name",
         logoHeight,
       };
 
@@ -39,11 +42,9 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
           <body>
             <div class="container">
               <img src="${query.logo}" alt="Favicon" />
-
                 <h1>${query.templateTitle}</h1>
-
-              
               <p class="description">${query.description}</p>
+              <h3>${query.siteName}</h3>
             </div>
           </body>
         </html>

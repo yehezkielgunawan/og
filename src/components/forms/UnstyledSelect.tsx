@@ -29,7 +29,13 @@ const UnstyledSelect = React.forwardRef<HTMLSelectElement, UnstyledSelectProps>(
             )}
             {optionList.map((singleOption, index) => {
               return (
-                <option key={index} value={singleOption}>
+                <option
+                  key={index}
+                  value={singleOption}
+                  selected={
+                    singleOption === defaultValue && defaultValue ? true : false
+                  }
+                >
                   {singleOption}
                 </option>
               );
