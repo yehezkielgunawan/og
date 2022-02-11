@@ -6,7 +6,7 @@ const defaultSEOConfig = {
   canonical: "https://og.yehezgun.com",
   openGraph: {
     url: "https://og.yehezgun.com",
-    title: "yehez-nexttailwind-starter",
+    title: "Yehez OG Image Generator",
     description: "Yehezkiel Gunawan's personalized OG Image Generator.",
     type: "website",
     images: [

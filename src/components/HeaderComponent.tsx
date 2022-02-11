@@ -27,6 +27,7 @@ const HeaderComponent = () => {
         <ButtonLink
           href="https://github.com/yehezkielgunawan/og"
           variant="ghost"
+          className="text-md md:text-lg"
         >
           <ImGithub className="mr-2" size={20} />
           See The Repository

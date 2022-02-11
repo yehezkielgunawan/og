@@ -21,6 +21,7 @@ const UnstyledSelect = React.forwardRef<HTMLSelectElement, UnstyledSelectProps>(
           <span className="text-gray-700 dark:text-gray-100">{labelName}</span>
           <select
             ref={ref}
+            defaultValue={defaultValue}
             className={clsxm("mt-1 block w-full dark:bg-slate-600", className)}
             {...rest}
           >
@@ -29,13 +30,7 @@ const UnstyledSelect = React.forwardRef<HTMLSelectElement, UnstyledSelectProps>(
             )}
             {optionList.map((singleOption, index) => {
               return (
-                <option
-                  key={index}
-                  value={singleOption}
-                  selected={
-                    singleOption === defaultValue && defaultValue ? true : false
-                  }
-                >
+                <option key={index} value={singleOption}>
                   {singleOption}
                 </option>
               );
