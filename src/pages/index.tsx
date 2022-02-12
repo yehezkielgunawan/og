@@ -94,6 +94,7 @@ const Home: NextPage = () => {
             <UnstyledInput
               labelName="logoWidth"
               type="number"
+              helperText="Default value: 100"
               {...register("logoWidth")}
             />
             <UnstyledInput
