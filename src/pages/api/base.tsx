@@ -52,7 +52,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
               }}
             >
               <img
-                src={logo}
+                src={query.logo}
                 alt="logo-image"
                 style={{
                   width: `${query.logoWidth}px`,
@@ -61,13 +61,13 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
                   }`,
                 }}
               />
-              <h1 className="mt-2 text-4xl font-semibold">
+              <h1 className="mt-2 text-5xl font-semibold">
                 {query.templateTitle}
               </h1>
-              <p className="description text-2xl leading-6">
+              <p className="description text-2xl">
                 {query.description}
               </p>
-              <h3 className="mt-0.5 text-xl">{query.siteName}</h3>
+              <h3 className="mt-1 text-xl">{query.siteName}</h3>
             </div>
           </body>
         </>
