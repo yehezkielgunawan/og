@@ -37,10 +37,6 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
       return `
         <html>
           <head>
-          <link
-          href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-          rel="stylesheet"
-        />
             ${getStyle(query)}
           </head>
           <body>
