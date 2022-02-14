@@ -45,7 +45,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
           </head>
           <body>
             <div
-              className="container-custom flex min-h-screen flex-col items-center justify-center gap-3"
+              className="flex min-h-screen flex-col items-center justify-center gap-3"
               style={{
                 background: query.theme === "dark" ? "#222" : "#fff",
                 color: query.theme === "dark" ? "white" : "black",
@@ -55,8 +55,10 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
                 src={logo}
                 alt="logo-image"
                 style={{
-                  width: query.logoWidth`px`,
-                  height: query.logoHeight ? query.logoHeight`px` : "auto",
+                  width: `${query.logoWidth}px`,
+                  height: `${
+                    query.logoHeight ? `${query.logoHeight}px` : "auto"
+                  }`,
                 }}
               />
               <h1 className="mt-2 text-4xl font-semibold">
