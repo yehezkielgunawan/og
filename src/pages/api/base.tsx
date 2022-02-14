@@ -45,7 +45,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
           </head>
           <body>
             <div
-              className="flex w-screen h-screen flex-col items-center justify-center text-center px-2 gap-3"
+              className="flex h-screen w-screen flex-col items-center justify-center gap-3 px-8 text-center"
               style={{
                 background: query.theme === "dark" ? "#222" : "#fff",
                 color: query.theme === "dark" ? "white" : "black",
@@ -61,13 +61,9 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
                   }`,
                 }}
               />
-              <h1 className="mt-2 text-5xl font-semibold">
-                {query.templateTitle}
-              </h1>
-              <p className="description text-2xl">
-                {query.description}
-              </p>
-              <h3 className="mt-1 text-xl">{query.siteName}</h3>
+              <h1 className="mt-2 text-5xl font-bold">{query.templateTitle}</h1>
+              <p className="text-2xl">{query.description}</p>
+              <h3 className="mt-2 text-xl">{query.siteName}</h3>
             </div>
           </body>
         </>
