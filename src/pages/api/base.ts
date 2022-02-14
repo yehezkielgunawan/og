@@ -44,7 +44,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
             ${getStyle(query)}
           </head>
           <body>
-          <div class="w-screen h-screen flex flex-col gap-3 items-center justify-center container">
+          <div class="min-h-screen flex flex-col gap-3 items-center justify-center container">
           <img src="${query.logo}" alt="logo-image">
         <h1 class="text-5xl mt-2">${query.templateTitle}</h1>
         <p class="text-2xl leading-6 description">${query.description}</p>
