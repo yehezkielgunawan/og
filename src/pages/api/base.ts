@@ -44,12 +44,12 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
             ${getStyle(query)}
           </head>
           <body>
-          <div class="min-h-screen flex flex-col gap-3 items-center justify-center container">
-          <img src="${query.logo}" alt="logo-image">
-        <h1 class="text-5xl mt-2">${query.templateTitle}</h1>
-        <p class="text-2xl leading-6 description">${query.description}</p>
-        <h3 class="mt-0.5 text-xl">${query.siteName}</h3>
-        </div>
+            <div class="container">
+              <img src="${query.logo}" alt="Favicon" />
+                <h1>${query.templateTitle}</h1>
+              <p class="description">${query.description}</p>
+              <h3>${query.siteName}</h3>
+            </div>
           </body>
         </html>
       `;
@@ -86,6 +86,14 @@ const getStyle = (
   }
 
   .container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     background: ${query.theme === "dark" ? "#222" : "#fff"};
     color: ${query.theme === "dark" ? "white" : "black"};
 
@@ -98,11 +106,22 @@ const getStyle = (
     ${query.logoHeight && `height: ${query.logoHeight}px`}
   }
 
+  h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-top: 1.5rem;
+  }
+
   h3 {
+    margin-top: 0.5rem;
     color: ${query.theme === "dark" ? "#E5E7EB" : "#374151"};
+    font-size: 1.5rem;
   }
   
   .description {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-top: 1rem;
     color: ${query.theme === "dark" ? "#D1D5DB" : "#1F2937"};
   }
 </style>
