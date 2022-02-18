@@ -22,15 +22,15 @@ const HeaderComponent = () => {
         )}
       >
         <h5 className="font-bold text-black dark:text-white">
-          Open Graph Image Generator
+          OG Image Generator
         </h5>
         <ButtonLink
           href="https://github.com/yehezkielgunawan/og"
           variant="ghost"
-          className="text-md md:text-lg"
+          className="text-sm md:text-lg"
         >
-          <ImGithub className="mr-2" size={20} />
-          See The Repository
+          <ImGithub className="mr-2 text-lg md:text-2xl" />
+          Source Code
         </ButtonLink>
       </div>
     </header>
