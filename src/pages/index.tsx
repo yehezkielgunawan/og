@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import queryString from "query-string";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { ImCheckmark } from "react-icons/im";
 
 import { GeneralQueryEnum } from "./api/base";
 
@@ -31,6 +32,21 @@ const Home: NextPage = () => {
   );
   const onSubmitForm: SubmitHandler<Query> = () => {
     setImgLink(link);
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 5000);
+  };
+
+  const [copied, setCopied] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
+  const handleCopy = () => {
+    setCopied(true);
+    navigator.clipboard.writeText(link);
+    setTimeout(() => {
+      setCopied(false);
+    }, 3000);
   };
 
   useEffect(() => {
@@ -114,15 +130,42 @@ const Home: NextPage = () => {
             Generate
           </Button>
         </form>
-        <div className="flex w-full flex-col items-center justify-center p-5">
+        <div className="flex w-full flex-col items-center justify-center gap-2 p-5">
           <img
             src={imgLink}
-            className="w-full bg-gray-500"
+            className="w-full cursor-pointer bg-gray-500"
             alt="logo-image"
             width="1200"
             height="630"
+            onClick={handleCopy}
           />
-          <p className="mt-2 break-all text-sm text-gray-600">{link}</p>
+          <p
+            className="mt-2 cursor-pointer break-all text-sm text-gray-600 hover:underline"
+            onClick={handleCopy}
+          >
+            {link}
+          </p>
+          {copied && (
+            <p
+              className={clsxm(
+                "rounded-md bg-primary-300 p-2",
+                "text-sm ring-2 ring-primary-400"
+              )}
+            >
+              Copied!
+            </p>
+          )}
+          {isSubmitted && (
+            <p
+              className={clsxm(
+                "inline-flex items-center gap-1 rounded-md",
+                "bg-teal-200 p-2 text-sm ring-2 ring-teal-400"
+              )}
+            >
+              Form Submmited! The preview can be seen in seconds.{" "}
+              <ImCheckmark className="text-sm text-teal-600 md:text-lg" />
+            </p>
+          )}
         </div>
       </main>
     </Layout>
