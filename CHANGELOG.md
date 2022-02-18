@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/yehezkielgunawan/og/compare/v0.0.2...v0.0.3) (2022-02-18)
+
+
+### Features
+
+* **index.tsx:** :sparkles: add UX interaction when copy the text by clicking the text or image ([1852535](https://github.com/yehezkielgunawan/og/commit/1852535006647745e6b923f3270cf73ed4cbcd7c))
+
+
+### Bug Fixes
+
+* **base.tsx:** :bug: fix image url in og image ([29ec50d](https://github.com/yehezkielgunawan/og/commit/29ec50d061df8adb21cb5bc7a22c28dd803c3adc))
+* **base.tsx:** :bug: fix ui bug on og image ([95aac51](https://github.com/yehezkielgunawan/og/commit/95aac51a4ebb6cd4ebc5117adab67814978c2916))
+
 ### [0.0.2](https://github.com/yehezkielgunawan/og/compare/v0.0.1...v0.0.2) (2022-02-12)
 
 ### 0.0.1 (2022-02-11)
