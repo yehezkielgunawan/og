@@ -35,7 +35,7 @@ const Home: NextPage = () => {
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
-    }, 5000);
+    }, 7000);
   };
 
   const [copied, setCopied] = useState<boolean>(false);
@@ -145,27 +145,29 @@ const Home: NextPage = () => {
           >
             {link}
           </p>
-          {copied && (
-            <p
-              className={clsxm(
-                "rounded-md bg-primary-300 p-2",
-                "text-sm ring-2 ring-primary-400"
-              )}
-            >
-              Copied!
-            </p>
-          )}
-          {isSubmitted && (
-            <p
-              className={clsxm(
-                "inline-flex items-center gap-1 rounded-md",
-                "bg-teal-200 p-2 text-sm ring-2 ring-teal-400"
-              )}
-            >
-              Form Submmited! The preview can be seen in seconds.{" "}
-              <ImCheckmark className="text-sm text-teal-600 md:text-lg" />
-            </p>
-          )}
+          <p
+            className={clsxm(
+              "rounded-md bg-primary-300 p-2",
+              "text-sm ring-2 ring-primary-400",
+              "invisible",
+              copied && "visible"
+            )}
+          >
+            Copied!
+          </p>
+
+          <p
+            className={clsxm(
+              "inline-flex items-center gap-1 rounded-md",
+              "bg-teal-200 p-2 text-sm ring-2 ring-teal-400",
+              "invisible",
+              isSubmitted && "visible"
+            )}
+          >
+            Form Submmited! The preview can be seen in seconds. Now you can
+            click at the image or the text to copy it.
+            <ImCheckmark className="text-sm text-teal-600 md:text-lg" />
+          </p>
         </div>
       </main>
     </Layout>
