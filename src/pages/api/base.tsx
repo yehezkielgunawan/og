@@ -61,8 +61,8 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
                   }`,
                 }}
               />
-              <h1 className="mt-2 text-5xl font-bold">{query.templateTitle}</h1>
-              <p className="my-2 px-6 text-2xl leading-loose">
+              <h1 className="my-2 text-5xl font-bold">{query.templateTitle}</h1>
+              <p className="my-2 px-6 text-2xl leading-relaxed">
                 {query.description}
               </p>
               <h3 className="mt-2 text-3xl font-semibold">{query.siteName}</h3>

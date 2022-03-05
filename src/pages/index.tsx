@@ -13,7 +13,7 @@ import UnstyledSelect from "@/components/forms/UnstyledSelect";
 import Layout from "@/layouts/Layout";
 import clsxm from "@/lib/helpers/clsxm";
 
-type Query = Record<keyof typeof GeneralQueryEnum, string>;
+type Query = Record<keyof typeof GeneralQueryEnum | "ogType", string>;
 
 const Home: NextPage = () => {
   const {
@@ -25,6 +25,7 @@ const Home: NextPage = () => {
     mode: "all",
   });
   const modeOptions = ["light", "dark"];
+  const ogTypeList = ["base", "article"];
   const formData = watch();
   const [link, setLink] = useState<string>("https://og.yehezgun.com/api/base");
   const [imgLink, setImgLink] = useState<string>(
@@ -50,10 +51,10 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    const { ...rest } = formData;
+    const { ogType, ...rest } = formData;
     const qurl = queryString.stringifyUrl(
       {
-        url: "https://og.yehezgun.com/api/base",
+        url: `https://og.yehezgun.com/api/${ogType}`,
         query: { ...rest },
       },
       {
@@ -70,6 +71,13 @@ const Home: NextPage = () => {
           onSubmit={handleSubmit(onSubmitForm)}
           className="my-4 flex w-full flex-col gap-3"
         >
+          <UnstyledSelect
+            labelName="OG Type"
+            optionList={ogTypeList}
+            defaultValue="base"
+            helperText="By default, the OG Type is base."
+            {...register("ogType")}
+          />
           <UnstyledSelect
             labelName="Mode"
             optionList={modeOptions}
