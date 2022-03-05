@@ -21,7 +21,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
         logo:
           logo ??
           "https://res.cloudinary.com/yehez/image/upload/v1636202181/peep_amkhuu.svg",
-        description: description ?? "An Article by",
+        description: description ?? "An Article Post by",
         siteName: siteName ?? "yehezgun.com",
         theme: theme ?? "dark",
         templateTitle: templateTitle ?? "The Title of The Article",
@@ -59,7 +59,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
                   <h3 className="text-3xl font-semibold">
                     {query.description}
                   </h3>
-                  <h3 className="bg-gradient-to-r from-gray-300 to-gray-400 p-1 text-3xl font-bold text-black">
+                  <h3 className="bg-gradient-to-r from-gray-300 to-gray-400 p-1 text-4xl font-bold tracking-wide text-black">
                     Yehezkiel Gunawan
                   </h3>
                 </div>
