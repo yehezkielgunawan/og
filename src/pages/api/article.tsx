@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
-// https://play.tailwindcss.com/i3kYVT5F0m
+// https://play.tailwindcss.com/1l4dzJlzQo
 import { withOGImage } from "next-api-og-image";
 
 import { GeneralQueryEnum } from "./base";
@@ -59,7 +59,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
                   <h3 className="text-3xl font-semibold">
                     {query.description}
                   </h3>
-                  <h3 className="bg-gradient-to-r from-slate-300 to-zinc-400 px-1 text-3xl font-bold">
+                  <h3 className="bg-gradient-to-r from-gray-300 to-gray-400 p-1 text-3xl font-bold text-black">
                     Yehezkiel Gunawan
                   </h3>
                 </div>
