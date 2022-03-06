@@ -111,7 +111,7 @@ const Home: NextPage = () => {
           <UnstyledInput
             labelName="Image URL"
             type="text"
-            helperText="By default the image is https://og.yehezgun.com/peep_yehez.svg"
+            helperText="By default the image is like at the preview right now."
             {...register("logo")}
           />
           <div className="flex gap-2">
