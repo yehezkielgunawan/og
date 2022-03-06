@@ -20,7 +20,7 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
       const query = {
         logo:
           logo ??
-          "https://res.cloudinary.com/yehez/image/upload/v1636202181/peep_amkhuu.svg",
+          "https://res.cloudinary.com/yehez/image/upload/v1646486254/yehez_avatar_yvlxbo.svg",
         description: description ?? "An Article Post by",
         siteName: siteName ?? "yehezgun.com",
         theme: theme ?? "dark",
