@@ -53,5 +53,6 @@ const UnstyledInput = React.forwardRef<HTMLInputElement, UnstyledInputProps>(
     );
   }
 );
+UnstyledInput.displayName = "UnstlyledInput";
 
 export default UnstyledInput;

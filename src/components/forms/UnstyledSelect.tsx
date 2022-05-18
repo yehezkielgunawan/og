@@ -60,4 +60,6 @@ const UnstyledSelect = React.forwardRef<HTMLSelectElement, UnstyledSelectProps>(
   }
 );
 
+UnstyledSelect.displayName = "UnstyledSelect";
+
 export default UnstyledSelect;
