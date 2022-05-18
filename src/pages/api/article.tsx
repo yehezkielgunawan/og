@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-head-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 // https://play.tailwindcss.com/1l4dzJlzQo

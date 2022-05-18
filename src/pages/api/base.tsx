@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-head-element */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { withOGImage } from "next-api-og-image";
