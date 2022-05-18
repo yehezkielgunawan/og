@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ImCheckmark } from "react-icons/im";
 
-import { GeneralQueryEnum } from "./api/base";
-
 import Button from "@/components/buttons/Button";
 import UnstyledInput from "@/components/forms/UnstyledInput";
 import UnstyledSelect from "@/components/forms/UnstyledSelect";
 import Layout from "@/layouts/Layout";
 import clsxm from "@/lib/helpers/clsxm";
+
+import { GeneralQueryEnum } from "./api/base";
 
 type Query = Record<keyof typeof GeneralQueryEnum | "ogType", string>;
 
