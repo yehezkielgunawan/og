@@ -42,9 +42,9 @@ export default withOGImage<"query", keyof typeof GeneralQueryEnum>({
                 color: query.theme === "dark" ? "white" : "black",
               }}
             >
-              <div className="flex w-full items-center justify-between gap-4">
-                <div className="space-y-5 text-left">
-                  <h3 className="text-5xl font-bold">{query.templateTitle}</h3>
+              <div className="flex w-full items-center justify-between gap-4 px-16">
+                <div className="space-y-3 text-left">
+                  <h1 className="text-5xl font-bold">{query.templateTitle}</h1>
                   <h5 className="text-2xl font-semibold">{query.siteName}</h5>
                 </div>
                 <img
