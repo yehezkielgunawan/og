@@ -25,7 +25,7 @@ const Home: NextPage = () => {
     mode: "all",
   });
   const modeOptions = ["light", "dark"];
-  const ogTypeList = ["base", "article"];
+  const ogTypeList = ["base", "article", "simple"];
   const formData = watch();
   const [link, setLink] = useState<string>("https://og.yehezgun.com/api/base");
   const [imgLink, setImgLink] = useState<string>(
